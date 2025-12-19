@@ -15,9 +15,6 @@ COPY . .
 # Build application
 RUN bun run build
 
-# Migrations
-RUN bun run db:migrate
-
 # Stage 2: Production
 FROM oven/bun:1-slim
 
