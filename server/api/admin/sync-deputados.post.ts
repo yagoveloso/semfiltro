@@ -1,7 +1,7 @@
 export default eventHandler(async (event) => {
   // 1. Verificar autenticação via header secret
   const secretHeader = getHeader(event, "x-sync-secret");
-  const syncSecret = process.env.NUXT_SYNC_SECRET || "dev";
+  const syncSecret = process.env.NUXT_SYNC_SECRET;
 
   if (secretHeader !== syncSecret) {
     throw createError({
