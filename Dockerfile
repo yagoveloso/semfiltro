@@ -15,6 +15,9 @@ COPY . .
 # Build application
 RUN bun run build
 
+# Migrations
+RUN bun run db:migrate
+
 # Stage 2: Production
 FROM oven/bun:1-slim
 
@@ -28,9 +31,6 @@ EXPOSE 3000
 
 # Set production environment
 ENV NODE_ENV=production
-
-# Migrations
-RUN bun run db:migrate
 
 # Run the application
 CMD ["bun", "run", ".output/server/index.mjs"]
