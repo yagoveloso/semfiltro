@@ -40,9 +40,9 @@ services:
       dockerfile: Dockerfile
     container_name: semfiltro-app
     environment:
-      DATABASE_URL: postgresql://semfiltro:${DB_PASSWORD}@postgres:5432/semfiltro
-      REDIS_URL: redis://redis:6379
-      SYNC_SECRET: ${SYNC_SECRET}
+      NUXT_DATABASE_URL: ${NUXT_DATABASE_URL}
+      NUXT_REDIS_URL: ${NUXT_REDIS_URL}
+      NUXT_SYNC_SECRET: ${NUXT_SYNC_SECRET}
       NODE_ENV: production
     ports:
       - "3000:3000"
